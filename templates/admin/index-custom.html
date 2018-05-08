@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+{% load i18n property_admin_tags visitevent_calendar_tags graph_tags %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% load adminmedia %}{% admin_media_prefix %}css/dashboard.css" />
+{% endblock %}
+
+{% block title %} {{ title }} | {{ REAL_ESTATE_APP_SITE_NAME }} {% endblock %}
+
+{% block branding %} <h1 id="site-name"> {{ REAL_ESTATE_APP_SITE_NAME }} </h1> {% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li class="active"><a href="{% url admin:index %} "><i class="icon-home" ></i>{% trans "Home" %}</a> </li>
+    </ul>
+{% endblock %}
+
+{% block menu-content-apps %}{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block content %}
+
+	{% get_linegraph height 200 as click_line_graph %}
+	{{ click_line_graph }}
+
+	{% if title %} <h3> {{ title }}</h3> {% endif %}
+	
+	{% get_property_chagelist_view as property_list %}
+
+	{{ property_list }}
+
+{% endblock %}

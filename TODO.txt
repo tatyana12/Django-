@@ -1,0 +1,9 @@
+NEW VERSION:
+- Doc new modules dependecy.
+- Take printscreens to marketing.
+- Test on new instalation.
+
+NORMAL:
+	- Create app to build locales.
+	- Problem javascript meio.mask with IE7.
+	- Create a app geolocation for Property.

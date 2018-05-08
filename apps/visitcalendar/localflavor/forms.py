@@ -1,0 +1,1 @@
+fields_visitor_form=['first_name','last_name','address','zip','celphone', 'email', 'phone', 'work_address','work_zip','work_phone',]

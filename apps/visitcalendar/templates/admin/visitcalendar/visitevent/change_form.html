@@ -1,0 +1,25 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_modify adminmedia termvisit_tags graph_tags %}
+{% load url from future %}
+
+{% block object-tools %}
+{% if change %}
+  {% if not is_popup %}
+        <a href="history/" class="btn pull-right"><i class="icon-list-alt"></i> {% trans "History" %}</a>
+        <a href="term/" class="btn pull-right"> <i class="icon-book"></i> {% trans "Term Visit" %} </a>
+    {% if opts.app_label == "auth" %}
+      {% if perms.auth.user %}
+        {% if has_absolute_url %}<a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="btn pull-right"><i class="icon-eye-open"></i> {% trans "View on site" %}</a>{% endif %}
+      {% endif %}
+    {% else %}
+        {% if has_absolute_url %}<a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="btn pull-right"><i class="icon-eye-open"></i> {% trans "View on site" %}</a>{% endif %}
+    {% endif %}
+  {% else %}
+    <a href="../?pop=1" class="btn"><i class="icon-list-alt"></i>{% trans "Manage list" %}</a>
+  {% endif %}
+{% else %}
+  {% if is_popup %}
+    <a href="../?pop=1" class="btn"><i class="icon-list-alt"></i> {% trans "Manage list" %}</a></li>
+  {% endif %}
+{% endif %}
+{% endblock %}

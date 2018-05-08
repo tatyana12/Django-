@@ -1,0 +1,14 @@
+#gmaps img { 
+  max-width: none;
+}
+
+#gmaps label { 
+  width: auto; 
+  display:inline; 
+}
+
+.gmaps p.help,
+#maps p.help {
+	padding-left: 10px;
+	margin-left: 0;
+} 
